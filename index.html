@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estrellita Fugaz - Diseño de Interiores</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Estilos personalizados */
+    :root {
+      --pastel-pink: #FFD6E0;
+      --pastel-blue: #C6E6FF;
+      --pastel-green: #D4E9D7;
+      --pastel-yellow: #FFF4C0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #333;
+      background-color: #fff;
+    }
+
+    .navbar-brand {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #2c3e50;
+      text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.8);
+      position: relative;
+      padding: 5px 10px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar-brand::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #2c3e50;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand:hover::after {
+      transform: scaleX(1);
+    }
+
+    .navbar-brand:hover {
+      transform: translateY(-2px);
+      color: #34495e;
+    }
+
+    .nav-link {
+      font-size: 1.1rem;
+      color: #666;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--pastel-pink);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      background: linear-gradient(45deg, var(--pastel-green) 0%, var(--pastel-blue) 100%);
+      padding: 60px 0;
+      margin-bottom: 40px;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #555;
+    }
+
+    .logo-placeholder {
+      width: 250px;
+      height: 250px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 2rem;
+      overflow: hidden;
+    }
+
+    .logo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 15px;
+    }
+
+    .banner-placeholder {
+      flex: 2;
+      height: 300px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      overflow: hidden;
+    }
+
+    .banner-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .logo-placeholder:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .services {
+      padding: 60px 0;
+      background-color: #fff;
+    }
+
+    .services h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #444;
+    }
+
+    .service-item {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 30px;
+      border-radius: 15px;
+      transition: all 0.3s ease;
+      background-color: #fff;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-item:nth-child(1):hover {
+      background-color: var(--pastel-pink);
+    }
+
+    .service-item:nth-child(2):hover {
+      background-color: var(--pastel-blue);
+    }
+
+    .service-item:nth-child(3):hover {
+      background-color: var(--pastel-green);
+    }
+
+    .service-item i {
+      font-size: 3rem;
+      color: #666;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .service-item:hover i {
+      transform: scale(1.2);
+      color: #444;
+    }
+
+    .service-item h3 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #444;
+    }
+
+    .service-item p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Estilos para la galería */
+    .gallery {
+      padding: 60px 0;
+      background-color: var(--pastel-yellow);
+      background: linear-gradient(135deg, rgba(255, 244, 192, 0.3) 0%, rgba(255, 255, 255, 0.5) 100%);
+    }
+
+    .gallery h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #444;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      padding: 0 15px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      aspect-ratio: 16/9;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+      padding: 20px;
+      color: white;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-overlay h3 {
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .gallery-overlay p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    /* Estilos para el footer */
+    .footer {
+      background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-blue) 100%);
+      padding: 60px 0 30px;
+      color: #444;
+    }
+
+    .footer h4 {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .footer-contact {
+      margin-bottom: 30px;
+    }
+
+    .footer-contact p {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-contact i {
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #444;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-links a:hover {
+      color: #2c3e50;
+      transform: translateX(5px);
+    }
+
+    .footer-social {
+      margin-bottom: 30px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2c3e50;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: #2c3e50;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .footer-schedule {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .footer-schedule p {
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+      <a class="navbar-brand" href="#">Estrellita Fugaz</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="logo-placeholder">
+          <img src="./assets/logo.jpg" alt="Logo">
+        </div>
+        <div class="banner-placeholder">
+          <img src="./assets/banner.jpg" alt="Banner">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="container">
+      <h2>Nuestros Servicios</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="fas fa-couch"></i>
+            <h3>Diseño de Muebles</h3>
+            <p>Personaliza tu espacio con nuestros diseños únicos de muebles.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="fas fa-paint-roller"></i>
+            <h3>Consultoría de Color</h3>
+            <p>Encuentra la paleta de colores perfecta para tu hogar u oficina.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="service-item">
+            <i class="fas fa-tools"></i>
+            <h3>Renovación Interior</h3>
+            <p>Transforma tu espacio con nuestros servicios expertos de renovación.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="container">
+      <h2>Nuestros Diseños</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="./assets/diseno1.jpg" alt="Diseño Interior 1">
+          <div class="gallery-overlay">
+            <h3>Diseño Moderno</h3>
+            <p>Espacios contemporáneos con estilo único</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/diseno2.jpg" alt="Diseño Interior 2">
+          <div class="gallery-overlay">
+            <h3>Diseño Elegante</h3>
+            <p>Ambientes sofisticados y acogedores</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/diseno3.jpg" alt="Diseño Interior 3">
+          <div class="gallery-overlay">
+            <h3>Diseño Minimalista</h3>
+            <p>Simplicidad y funcionalidad en armonía</p>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <img src="./assets/diseno4.jpg" alt="Diseño Interior 4">
+          <div class="gallery-overlay">
+            <h3>Diseño Creativo</h3>
+            <p>Soluciones innovadoras para cada espacio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="footer-contact">
+            <h4>Contacto</h4>
+            <p><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Lima, Perú</p>
+            <p><i class="fas fa-phone"></i> +51 123 456 789</p>
+            <p><i class="fas fa-envelope"></i> info@estrellitafugaz.com</p>
+          </div>
+          <div class="footer-schedule">
+            <h4>Horario de Atención</h4>
+            <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+            <p>Sábados: 9:00 AM - 1:00 PM</p>
+            <p>Domingos: Cerrado</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-links">
+            <h4>Enlaces Rápidos</h4>
+            <ul>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Nuestros Servicios</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Galería de Diseños</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre Nosotros</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Solicitar Cotización</a></li>
+              <li><a href="#"><i class="fas fa-chevron-right"></i> Preguntas Frecuentes</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="footer-social">
+            <h4>Síguenos</h4>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-pinterest"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+          <div class="footer-newsletter">
+            <h4>Boletín Informativo</h4>
+            <p>Suscríbete para recibir las últimas tendencias en diseño de interiores y ofertas especiales.</p>
+            <div class="input-group mb-3">
+              <input type="email" class="form-control" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico">
+              <button class="btn btn-dark" type="button">Suscribirse</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Estrellita Fugaz - Diseño de Interiores. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
