@@ -17,8 +17,4 @@ Sitio web para la empresa de diseño de interiores "Estrellita Fugaz". El sitio 
 - CSS3
 - Bootstrap 5
 - Font Awesome
-- JavaScript
 
-## Autor
-
-[Tu nombre]
